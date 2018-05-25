@@ -110,8 +110,6 @@ describe 'Oystercard' do
     card.touch_out("Angel")
     card.touch_in("Bow")
     card.touch_out("Bethan Green")
-    p card.current_journey
-    p card.journeys
     expect(card.journeys).to eq [["Aldgate", "Tottenham Court Road"], ["Shoreditch", "Angel"], ["Bow", "Bethan Green"]]
   end
 
