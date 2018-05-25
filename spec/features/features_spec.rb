@@ -1,4 +1,5 @@
 require './lib/oystercard.rb'
+require './lib/station.rb'
 
 describe 'Oystercard' do
 
@@ -113,4 +114,20 @@ describe 'Oystercard' do
     expect(card.journeys).to eq [["Aldgate", "Tottenham Court Road"], ["Shoreditch", "Angel"], ["Bow", "Bethan Green"]]
   end
 
+  # In order to know how far I have travelled
+  # As a customer
+  # I want to know what zone a station is in
+  it 'we can create a station' do
+    expect { Station.new("zone") }.not_to raise_error
+  end
+
+  it 'has a zone' do
+    station = Station.new("Zone 1")
+    expect { station.zone }.not_to raise_error
+  end
+
+  it "returns the station's zone" do
+    station = Station.new("Zone 1")
+    expect(station.zone).to eq "Zone 1"
+  end
 end
