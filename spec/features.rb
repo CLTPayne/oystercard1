@@ -6,7 +6,7 @@ require './lib/oystercard.rb'
 # I want money on my card
 
 # * Feature Test 1 *
-p oystercard = Oystercard.new
+# p oystercard = Oystercard.new
 # p oystercard.balance
 
 # * User Story 2 *
@@ -72,13 +72,30 @@ p oystercard = Oystercard.new
 # In order to know where I have been
 # As a customer
 # I want to see all my previous trips
+it 'it stores the previous trips' do
+  card = Oystercard.new
+  card.top_up(10)
+  card.touch_in("entry")
+  card.touch_out("exit")
+  expect(card.journeys).to include(["entry", "exit"])
+
+end
 
 # * Feature Test 9 *
-p oystercard.top_up(3)
-p oystercard.touch_in("entry_station")
-p oystercard.touch_out("exit_station")
-p oystercard.journeys
-p oystercard.touch_in("entry_station2")
-p oystercard.touch_out("exit_station2")
-p oystercard.journeys
-p oystercard.current_journey
+# p oystercard.top_up(3)
+# p oystercard.touch_in("Shoreditch")
+# p oystercard.touch_out("Angel")
+# p oystercard.current_journey
+# p oystercard.journeys
+# p oystercard.touch_in("Kings Cross")
+# p oystercard.touch_out("Farringdon")
+# p oystercard.current_journey
+# p oystercard.journeys
+# p oystercard.touch_in("Oxford Circus")
+# p oystercard.touch_out("Bond Street")
+# p "before efkjlkdfjals;kdjfoskdgfjal;ksdgj;alkdgj;alkd"
+# p oystercard.journeys
+#
+# p "end efkjlkdfjals;kdjfoskdgfjal;ksdgj;alkdgj;alkd"
+# p oystercard.current_journey
+# p journeys.class?
