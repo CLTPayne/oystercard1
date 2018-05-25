@@ -27,12 +27,14 @@ class Oystercard
 
   def touch_out(exit_station)
     deduct(MIN_FARE)
-    @exit_station = exit_station
-    @current_journey.push(entry_station, exit_station)
-    @journeys.push(@current_journey)
-    # @current_journey = nil
-    @entry_station = nil
-    return @current_journey
+    while in_journey?
+      @current_journey = []
+      @exit_station = exit_station
+      @current_journey.push(entry_station, exit_station)
+      @journeys.push(@current_journey)
+      @entry_station = nil
+     return @current_journey
+    end
   end
 
   def in_journey?
